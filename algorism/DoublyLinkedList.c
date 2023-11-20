@@ -13,7 +13,7 @@ void DL_Create_List(DoublyLinkList** List)
 
 void DL_Destroy_List(DoublyLinkList* List)
 {
-	Node* Current = List->Head;
+	DL_Node* Current = List->Head;
 
 	while (Current != NULL)
 	{
@@ -24,9 +24,9 @@ void DL_Destroy_List(DoublyLinkList* List)
 	free(List);
 }
 
-Node* DL_Create_Node(int New_Data)
+DL_Node* DL_Create_Node(int New_Data)
 {
-	Node* New_Node = (Node*)malloc(sizeof(Node));
+	DL_Node* New_Node = (DL_Node*)malloc(sizeof(DL_Node));
 	if (New_Node != NULL)
 	{
 		New_Node->Data = New_Data;
@@ -37,12 +37,12 @@ Node* DL_Create_Node(int New_Data)
 	return New_Node;
 }
 
-void DL_Destroy_Node(Node* Node)
+void DL_Destroy_Node(DL_Node* DL_Node)
 {
-	free(Node);
+	free(DL_Node);
 }
 
-void DL_Append_Node(DoublyLinkList* List, Node* New_Node)
+void DL_Append_Node(DoublyLinkList* List, DL_Node* New_Node)
 {
 	if (List->Head == NULL)
 	{
@@ -60,7 +60,7 @@ void DL_Append_Node(DoublyLinkList* List, Node* New_Node)
 	List->Count++;
 }
 
-void DL_Insert_After(DoublyLinkList* List, Node* Target, Node* New_Node)
+void DL_Insert_After(DoublyLinkList* List, DL_Node* Target, DL_Node* New_Node)
 {
 	if (List->Head == Target)
 	{
@@ -78,7 +78,7 @@ void DL_Insert_After(DoublyLinkList* List, Node* Target, Node* New_Node)
 	
 	else
 	{
-		Node* Current = List->Head;
+		DL_Node* Current = List->Head;
 
 		while (Current != Target && Current != NULL)
 			Current = Current->Next;
@@ -99,7 +99,7 @@ void DL_Insert_After(DoublyLinkList* List, Node* Target, Node* New_Node)
 	}
 }
 
-void DL_Insert_Before(DoublyLinkList* List, Node* Target, Node* New_Node)
+void DL_Insert_Before(DoublyLinkList* List, DL_Node* Target, DL_Node* New_Node)
 {
 	if (List->Head == Target)
 	{
@@ -110,7 +110,7 @@ void DL_Insert_Before(DoublyLinkList* List, Node* Target, Node* New_Node)
 
 	else
 	{
-		Node* Current = List->Head;
+		DL_Node* Current = List->Head;
 
 		while (Current != Target && Current != NULL)
 			Current = Current->Next;
@@ -131,7 +131,7 @@ void DL_Insert_Before(DoublyLinkList* List, Node* Target, Node* New_Node)
 	List->Count++;
 }
 
-void DL_Remove_Node(DoublyLinkList* List, Node* Target)
+void DL_Remove_Node(DoublyLinkList* List, DL_Node* Target)
 {
 	if (Target == List->Head)
 	{
@@ -145,7 +145,7 @@ void DL_Remove_Node(DoublyLinkList* List, Node* Target)
 	}
 	else
 	{
-		Node* Current = List->Head;
+		DL_Node* Current = List->Head;
 
 		while (Current != Target && Current != NULL)
 			Current = Current->Next;
@@ -168,7 +168,7 @@ void DL_Remove_Node(DoublyLinkList* List, Node* Target)
 
 void DL_Print_List(DoublyLinkList* List)
 {
-	Node* Current = List->Head;
+	DL_Node* Current = List->Head;
 
 	while (Current != NULL)
 	{
@@ -180,12 +180,13 @@ void DL_Print_List(DoublyLinkList* List)
 		Current = Current->Next;
 	}
 
+
 	printf("\n");
 }
 
 void DL_Insertion_Sort(DoublyLinkList* List)
 {
-	Node* Current = List->Head;
+	DL_Node* Current = List->Head;
 	int i = 0;
 
 	while (Current != List->Tail)
@@ -196,8 +197,8 @@ void DL_Insertion_Sort(DoublyLinkList* List)
 			continue;
 		}
 
-		Node* Compare = List->Head;
-		Node* Temp = Current->Next;
+		DL_Node* Compare = List->Head;
+		DL_Node* Temp = Current->Next;
 
 		while (Compare != Temp)
 		{
@@ -205,7 +206,6 @@ void DL_Insertion_Sort(DoublyLinkList* List)
 			{
 				DL_Remove_Node(List, Temp);
 				DL_Insert_Before(List, Compare, Temp);
-				DL_Print_List(List);
 				break;
 			}
 			Compare = Compare->Next;
