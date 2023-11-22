@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="BinaryTree.c" />
     <ClCompile Include="DoublyLinkedList.c" />
+    <ClCompile Include="Heap.c" />
     <ClCompile Include="LinkedLIst.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="PriortyQueue.c" />
+    <ClCompile Include="PriortyQueue.h" />
     <ClCompile Include="RedBlackTree.c" />
     <ClCompile Include="Search_Array.c" />
-    <ClCompile Include="serch.c" />
     <ClCompile Include="sort.c" />
     <ClCompile Include="stack.c" />
     <ClCompile Include="stack.h" />
@@ -141,9 +143,9 @@
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="DoublyLinkedList.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="LinkedLIst.h" />
     <ClInclude Include="RedBlackTree.h" />
-    <ClInclude Include="search.h" />
     <ClInclude Include="Search_Array.h" />
     <ClInclude Include="sort.h" />
   </ItemGroup>
