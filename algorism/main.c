@@ -6,12 +6,13 @@
 #include "BinaryTree.h"
 #include "RedBlackTree.h"
 #include "PriortyQueue.h"
+#include "HashTable.h"
 
 RBT_Node* Nil;
 
 int main(void)
 {
-	Test_PQ();
+	Test_CHT();
 
 	return 0;
 }
